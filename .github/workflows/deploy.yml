@@ -29,6 +29,12 @@ jobs:
       - run: npm ci
       - run: npm run build
 
+      # 👇 THIS IS THE MISSING PART
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist   # Astro default output folder
+
   deploy:
     environment:
       name: github-pages
