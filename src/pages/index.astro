@@ -5,6 +5,20 @@ import video1 from '../assets/output.mp4';
 ---
 
 <Layout>
+  <video
+    class="page-bg-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    poster="/background.svg"
+  >
+    <source
+      src={video1}
+      type="video/mp4"
+    />
+  </video>
+
   <main class="page-shell">
     <!-- NAVIGATION -->
     <nav class="top-nav" aria-label="Primary navigation">
@@ -13,33 +27,20 @@ import video1 from '../assets/output.mp4';
           class="logo"
           src={logoSrc.src}
           alt="Brand logo"
-        />
+        /> 
+        
       </a>
+
 
       <div class="nav-links">
         <a href="#portfolio">Portfolio</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#services">Υπηρεσίες</a>
+        <a href="#contact">Επικοινωνία</a>
       </div>
     </nav>
 
     <!-- HERO -->
     <section class="hero" id="home">
-      <video
-        class="bg-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        poster="/background.svg"
-      >
-        <source
-          src={video1}
-          type="video/mp4"
-        />
-      </video>
-
       <div class="hero-overlay"></div>
 
       <div class="hero-copy">
@@ -70,8 +71,10 @@ import video1 from '../assets/output.mp4';
       </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="section panel">
+    <!-- VIDEO BACKGROUND WRAPPER -->
+    <div class="content-bg-wrapper">
+      <!-- PORTFOLIO -->
+      <section id="portfolio" class="section panel">
       <div class="section-heading">
         <span>Portfolio</span>
         <h2>Drone imagery for modern brands</h2>
@@ -203,6 +206,7 @@ import video1 from '../assets/output.mp4';
         </a>
       </div>
     </section>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -229,7 +233,7 @@ import video1 from '../assets/output.mp4';
       sans-serif;
 
     color: #f8fafc;
-    background: #050816;
+    background: transparent;
   }
 
   :global(body) {
@@ -239,6 +243,32 @@ import video1 from '../assets/output.mp4';
   .page-shell {
     position: relative;
     min-height: 100vh;
+    z-index: 1;
+  }
+
+  /* =========================
+     PAGE BG VIDEO
+  ========================== */
+
+  .page-bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    object-fit: cover;
+
+    opacity: 0.6;
+
+    filter:
+      saturate(0.95)
+      contrast(1.05);
+
+    pointer-events: none;
+
+    z-index: 0;
   }
 
   /* =========================
@@ -351,22 +381,6 @@ import video1 from '../assets/output.mp4';
       2rem;
 
     overflow: hidden;
-  }
-
-  .bg-video {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    opacity: 0.55;
-
-    filter:
-      saturate(0.95)
-      contrast(1.05);
   }
 
   .hero-overlay {
@@ -490,6 +504,11 @@ import video1 from '../assets/output.mp4';
 
     margin: 0 auto;
     padding: 6rem 1.5rem;
+
+    position: relative;
+    z-index: 1;
+
+    background: #050816;
   }
 
   .section-alt {
