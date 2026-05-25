@@ -1,46 +1,46 @@
 const portfolioItems = [
   {
     category: 'Social Media',
-    title: 'Social Media Promotions',
-    description: 'Δυναμικό και μοντέρνο περιεχόμενο για beach bars, hotels, events και δραστηριότητες εξωτερικού χώρου.',
+    title: 'Social Campaigns',
+    description: 'Σειρές σύντομων, υψηλής ενέργειας βίντεο για Instagram και Facebook, σχεδιασμένα για engagement και conversions.',
     imageFile: 'social-media.jpg',
-    imageUrl: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80'
   },
   {
     category: 'Real Estate',
-    title: 'Real Estate',
-    description: 'Ο χώρος του real estate είναι πλέον κορεσμένος. Ξεχώρισε σε reels, TikTok και αγγελίες.',
+    title: 'Property Films',
+    description: 'Εναέριες και ground λήψεις που παρουσιάζουν ακίνητα με cinematic αισθητική για listings και συνεντεύξεις.',
     imageFile: 'real-estate.jpg',
-    imageUrl: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1505691723518-36a4b6d5a6ff?auto=format&fit=crop&w=1200&q=80'
   },
   {
     category: 'Events',
-    title: 'Adventure & Events',
-    description: 'Δυναμική κάλυψη για outdoor experiences, festivals, launches και brand activations.',
+    title: 'Live Event Coverage',
+    description: 'Οπτικό υλικό από εκδηλώσεις, συνέδρια και συναυλίες — storytelling και highlights για άμεση χρήση.',
     imageFile: 'events.jpg',
-    imageUrl: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1504805572947-34fad45aed93?auto=format&fit=crop&w=1200&q=80'
   },
   {
     category: 'Luxury Travel',
-    title: 'Luxury Travel Films',
-    description: 'Cinematic storytelling για high-end ταξίδια, charters και premium hospitality brands.',
+    title: 'Travel & Lifestyle',
+    description: 'Cinematic ταξιδιωτικά βίντεο που αναδεικνύουν προορισμούς, resorts και exclusive εμπειρίες.',
     imageFile: 'luxury-travel.jpg',
-    imageUrl: 'https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=900&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80'
   },
   {
     category: 'Hospitality',
-    title: 'Coastal Resorts',
-    description: 'Εντυπωσιακές εναέριες λήψεις που αναδεικνύουν τοποθεσία, πολυτέλεια και lifestyle.',
-    imageFile: 'coastal-resorts.jpg',
-    imageUrl: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80',
+    title: 'Hospitality Showreels',
+    description: 'Παρουσίαση ξενοδοχείων και fine-dining εμπειριών με έμφαση στο αίσθημα και την ατμόσφαιρα.',
+    imageFile: 'hospitality.jpg',
+    imageUrl: 'https://images.unsplash.com/photo-1496412705862-e0088f16f791?auto=format&fit=crop&w=1200&q=80'
   },
   {
     category: 'Property Marketing',
-    title: 'Property Marketing',
-    description: 'Εναέριες φωτογραφίες και walkthrough videos σχεδιασμένα για premium property listings.',
+    title: 'Aerial Property Marketing',
+    description: 'Σύνθετες εναέριες παραγωγές για developers και real estate marketing campaigns.',
     imageFile: 'property-marketing.jpg',
-    imageUrl: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80',
-  },
+    imageUrl: 'https://images.unsplash.com/photo-1505691723518-36a4b6d5a6ff?auto=format&fit=crop&w=1200&q=80'
+  }
 ];
 
 export default portfolioItems;
