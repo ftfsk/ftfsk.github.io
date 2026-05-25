@@ -113,25 +113,25 @@ import portfolioItems from '../data/portfolio-items';
         <div class="services-drone" aria-hidden="true">
           <svg viewBox="0 0 120 80" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <!-- refined drone: central body, camera (gold), four rotors -->
-            <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <g class="drone-group" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
               <!-- arms -->
               <path d="M30 20 L50 30" />
               <path d="M90 20 L70 30" />
               <path d="M30 60 L50 50" />
               <path d="M90 60 L70 50" />
 
-              <!-- rotors -->
-              <circle cx="26" cy="18" r="7" />
-              <circle cx="94" cy="18" r="7" />
-              <circle cx="26" cy="62" r="7" />
-              <circle cx="94" cy="62" r="7" />
+              <!-- rotors (with classes for animation) -->
+              <circle class="rotor r1" cx="26" cy="18" r="7" />
+              <circle class="rotor r2" cx="94" cy="18" r="7" />
+              <circle class="rotor r3" cx="26" cy="62" r="7" />
+              <circle class="rotor r4" cx="94" cy="62" r="7" />
 
               <!-- body -->
-              <rect x="44" y="28" width="32" height="24" rx="5" />
+              <rect class="drone-body" x="44" y="28" width="32" height="24" rx="5" />
               <!-- camera / sensor (gold) -->
-              <circle cx="60" cy="40" r="5" fill="rgba(232,160,32,0.96)" stroke="none" />
+              <circle class="camera" cx="60" cy="40" r="5" fill="rgba(232,160,32,0.96)" stroke="none" />
 
-              <!-- subtle trail for motion readibility -->
+              <!-- subtle trail for motion readability -->
               <path d="M10 44c20-14 40-16 70-6" opacity="0.12" />
             </g>
           </svg>
@@ -815,6 +815,26 @@ import portfolioItems from '../data/portfolio-items';
     height: auto;
     color: rgba(15, 23, 42, 0.82);
   }
+  
+  /* rotor spin + hover interactions */
+  .services-drone svg .rotor {
+    transform-box: fill-box;
+    transform-origin: center;
+    fill: rgba(6,9,26,0.06);
+    stroke: rgba(6,9,26,0.18);
+    animation: rotor-spin 0.95s linear infinite;
+  }
+  
+  .services-drone svg .r2 { animation-duration: 1.05s; animation-direction: reverse; }
+  .services-drone svg .r3 { animation-duration: 1s; }
+  .services-drone svg .r4 { animation-duration: 1.12s; animation-direction: reverse; }
+  
+  @keyframes rotor-spin { to { transform: rotate(360deg); } }
+  
+  /* subtle tilt + camera color brighten when user hovers the services grid */
+  .section-service-grid:hover .services-drone { filter: drop-shadow(0 36px 64px rgba(232,160,32,0.28)); }
+  .section-service-grid:hover .services-drone .drone-body { transform-box: fill-box; transform-origin: center; transition: transform 320ms cubic-bezier(.2,.8,.2,1); transform: rotate(-6deg) translateY(-4px); }
+  .section-service-grid:hover .services-drone .camera { transition: fill 260ms ease; fill: var(--gold-light); }
 
   @keyframes drone-adventure {
     0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0.9; }
