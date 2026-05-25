@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import logoSrc from '../assets/logo.png';
 import video1 from '../assets/output.mp4';
+import portfolioItems from '../data/portfolio-items';
 ---
 
 <Layout>
@@ -89,68 +90,16 @@ import video1 from '../assets/output.mp4';
 
         <div class="portfolio-scroller" aria-label="Portfolio services">
           <div class="portfolio-track">
-            <!-- original items -->
-            <article class="card service-card">
-              <div class="card-visual card-visual-1"></div>
-              <h3>Social Media Promotions</h3>
-              <p>Δυναμικό και μοντέρνο περιεχόμενο για beach bars, hotels, events και δραστηριοτήτων εξωτερικού χώρου.</p>
-            </article>
-            <article class="card service-card">
-              <div class="card-visual card-visual-2"></div>
-              <h3>Real Estate</h3>
-              <p>Ο χώρος του real estate είναι πλέον κορεσμένος. Ξεχώρισε σε reels, TikTok και αγγελίες.</p>
-            </article>
-            <article class="card service-card">
-              <div class="card-visual card-visual-3"></div>
-              <h3>Adventure & Events</h3>
-              <p>Δυναμική κάλυψη για outdoor experiences, festivals, launches και brand activations.</p>
-            </article>
-            <article class="card service-card">
-              <div class="card-visual card-visual-4"></div>
-              <h3>Luxury Travel Films</h3>
-              <p>Cinematic storytelling για high-end ταξίδια, charters και premium hospitality brands.</p>
-            </article>
-            <article class="card service-card">
-              <div class="card-visual card-visual-1"></div>
-              <h3>Coastal Resorts</h3>
-              <p>Εντυπωσιακές εναέριες λήψεις που αναδεικνύουν τοποθεσία, πολυτέλεια και lifestyle.</p>
-            </article>
-            <article class="card service-card">
-              <div class="card-visual card-visual-2"></div>
-              <h3>Property Marketing</h3>
-              <p>Εναέριες φωτογραφίες και walkthrough videos σχεδιασμένα για premium property listings.</p>
-            </article>
-            <!-- duplicates for seamless loop -->
-            <article class="card service-card" aria-hidden="true">
-              <div class="card-visual card-visual-3"></div>
-              <h3>Adventure & Events</h3>
-              <p>Δυναμική κάλυψη για outdoor experiences, festivals, launches και brand activations.</p>
-            </article>
-            <article class="card service-card" aria-hidden="true">
-              <div class="card-visual card-visual-4"></div>
-              <h3>Luxury Travel Films</h3>
-              <p>Cinematic storytelling για high-end ταξίδια, charters και premium hospitality brands.</p>
-            </article>
-            <article class="card service-card" aria-hidden="true">
-              <div class="card-visual card-visual-1"></div>
-              <h3>Social Media Promotions</h3>
-              <p>Δυναμικό και μοντέρνο περιεχόμενο για beach bars, hotels, events και δραστηριοτήτων εξωτερικού χώρου.</p>
-            </article>
-            <article class="card service-card" aria-hidden="true">
-              <div class="card-visual card-visual-2"></div>
-              <h3>Real Estate</h3>
-              <p>Ο χώρος του real estate είναι πλέον κορεσμένος. Ξεχώρισε σε reels, TikTok και αγγελίες.</p>
-            </article>
-            <article class="card service-card" aria-hidden="true">
-              <div class="card-visual card-visual-3"></div>
-              <h3>Adventure & Events</h3>
-              <p>Δυναμική κάλυψη για outdoor experiences, festivals, launches και brand activations.</p>
-            </article>
-            <article class="card service-card" aria-hidden="true">
-              <div class="card-visual card-visual-4"></div>
-              <h3>Luxury Travel Films</h3>
-              <p>Cinematic storytelling για high-end ταξίδια, charters και premium hospitality brands.</p>
-            </article>
+            {portfolioItems.map((item) => (
+              <article class="card service-card">
+                <div class="card-visual" style={`background-image: url('${item.imageUrl}')`} aria-label={item.imageFile}></div>
+                <div class="card-copy">
+                  <span class="card-category">{item.category}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -292,20 +241,55 @@ import video1 from '../assets/output.mp4';
       io.observe(heroEl);
     }
 
-    /* ── Portfolio auto-scroll (CSS animation, JS only for drag/wheel override) ── */
+    /* ── Portfolio auto-scroll with seamless loop ── */
     (() => {
       const scroller = document.querySelector<HTMLElement>('.portfolio-scroller');
-      const track    = scroller?.querySelector<HTMLElement>('.portfolio-track');
+      const track = scroller?.querySelector<HTMLElement>('.portfolio-track');
       if (!scroller || !track) return;
 
-      /* Allow horizontal wheel scroll */
-      scroller.addEventListener('wheel', (e) => {
-        if (Math.abs(e.deltaY) > 0) {
-          e.preventDefault();
-          // Nudge the animation offset instead — we use CSS animation, no scrollLeft
-          // Simply do nothing extra; CSS handles the loop.
+      const items = Array.from(track.children);
+      if (items.length === 0) return;
+
+      items.forEach((item) => track.appendChild(item.cloneNode(true)));
+
+      let lastTime = performance.now();
+      let paused = false;
+      let loopWidth = 0;
+
+      const updateLoopWidth = () => {
+        loopWidth = track.scrollWidth / 2;
+      };
+
+      const onWheel = (event: WheelEvent) => {
+        if (Math.abs(event.deltaY) > 0) {
+          event.preventDefault();
+          scroller.scrollLeft += event.deltaY * 0.9;
         }
-      }, { passive: false });
+      };
+
+      const onPointerEnter = () => { paused = true; };
+      const onPointerLeave = () => { paused = false; };
+
+      const step = (time: number) => {
+        if (!paused) {
+          const delta = time - lastTime;
+          lastTime = time;
+          scroller.scrollLeft += (80 * delta) / 1000;
+          if (scroller.scrollLeft >= loopWidth) {
+            scroller.scrollLeft -= loopWidth;
+          }
+        } else {
+          lastTime = time;
+        }
+        requestAnimationFrame(step);
+      };
+
+      window.addEventListener('resize', updateLoopWidth);
+      scroller.addEventListener('mouseenter', onPointerEnter);
+      scroller.addEventListener('mouseleave', onPointerLeave);
+      scroller.addEventListener('wheel', onWheel, { passive: false });
+      updateLoopWidth();
+      requestAnimationFrame(step);
     })();
   </script>
 </Layout>
@@ -326,20 +310,20 @@ import video1 from '../assets/output.mp4';
     --border:     rgba(255,255,255,0.07);
 
     /* Typography */
-    --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body:    'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body:    'Lato', ui-sans-serif, system-ui, sans-serif;
     --font-label:   'DM Mono', 'Courier New', monospace;
   }
 
   /* Google Fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;500;600;700&display=swap');
 
   :global(html, body) {
     margin: 0;
     min-height: 100%;
     font-family: var(--font-body);
-    color: #f8fafc;
-    background: var(--ink);
+    color: var(--ink);
+    background: #ffffff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -471,8 +455,8 @@ import video1 from '../assets/output.mp4';
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.90;
-    filter: saturate(1.1) contrast(1.05) brightness(1.0);
+    opacity: 1;
+    filter: saturate(1.08) contrast(1.12) brightness(1.08);
     pointer-events: none;
     z-index: 0;
   }
@@ -482,9 +466,9 @@ import video1 from '../assets/output.mp4';
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(6,9,26,0.30) 0%,
-      rgba(6,9,26,0.55) 60%,
-      rgba(6,9,26,0.92) 100%
+      rgba(6,9,26,0.18) 0%,
+      rgba(6,9,26,0.28) 60%,
+      rgba(6,9,26,0.42) 100%
     );
     z-index: 1;
   }
@@ -592,7 +576,7 @@ import video1 from '../assets/output.mp4';
   .white-hero-section {
     width: 100%;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 0.9fr 1.1fr;
     align-items: center;
     gap: 4rem;
     padding: 6rem 6rem;
@@ -600,7 +584,16 @@ import video1 from '../assets/output.mp4';
     color: var(--ink);
   }
 
-  .white-hero-copy .tag.light { margin-bottom: 1.2rem; }
+  .white-hero-copy {
+    max-width: 460px;
+  }
+
+  .white-hero-copy .tag.light {
+    margin-bottom: 1.2rem;
+    background: transparent;
+    border: none;
+    color: #06091A;
+  }
 
   .white-hero-copy h2 {
     margin: 0;
@@ -670,21 +663,24 @@ import video1 from '../assets/output.mp4';
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    color: #ffffff;
+    color: var(--ink);
   }
 
   /* =====================================================
      PORTFOLIO SCROLLER — pure CSS animation, no JS scrollLeft
   ===================================================== */
   .portfolio-section {
-    background: var(--ink);
+    background: #ffffff;
     padding: 7rem 0;
     overflow: hidden;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
   }
 
   .portfolio-scroller {
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-behavior: auto;
   }
 
   .portfolio-track {
@@ -692,68 +688,69 @@ import video1 from '../assets/output.mp4';
     gap: 1.5rem;
     padding: 0 3rem 0.5rem;
     width: max-content;
-    /* animate: move left by exactly half (the 6 original cards) */
-    animation: portfolioScroll 28s linear infinite;
-  }
-
-  .portfolio-scroller:hover .portfolio-track {
-    animation-play-state: paused;
-  }
-
-  @keyframes portfolioScroll {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
   }
 
   .portfolio-track .service-card {
-    flex: 0 0 360px;
-    width: 360px;
+    flex: 0 0 380px;
+    width: 380px;
+  }
+
+  .card-category {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(232,160,32,0.12);
+    color: var(--ink);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
   }
 
   /* =====================================================
      CARDS
   ===================================================== */
   .card {
-    background: rgba(13,17,41,0.90);
-    border: 1px solid var(--border);
-    border-radius: 1.25rem;
-    padding: 1.25rem;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    background: #ffffff;
+    border: none;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+    transition: transform 0.32s ease, box-shadow 0.32s ease;
   }
 
   .card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(232,160,32,0.30);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 26px 70px rgba(15, 23, 42, 0.14);
   }
 
   .card h3 {
-    margin: 1.2rem 0 0.65rem;
+    margin: 0 0 0.85rem;
     font-family: var(--font-display);
     font-size: 1.35rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--ink);
   }
 
   .card p {
     margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.75;
-    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(15, 23, 42, 0.74);
   }
 
   .card-visual {
     width: 100%;
-    height: 230px;
-    border-radius: 1rem;
+    min-height: 240px;
+    aspect-ratio: 16 / 10;
     background-size: cover;
     background-position: center;
   }
 
-  .card-visual-1 { background-image: url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80'); }
-  .card-visual-2 { background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80'); }
-  .card-visual-3 { background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80'); }
-  .card-visual-4 { background-image: url('https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=900&q=80'); }
+  .card-copy {
+    padding: 1.35rem 1.4rem 1.6rem;
+  }
 
   /* =====================================================
      SERVICES GRID — matches gold palette
@@ -821,7 +818,7 @@ import video1 from '../assets/output.mp4';
      ABOUT
   ===================================================== */
   .about-section {
-    background: var(--ink-soft);
+    background: #ffffff;
   }
 
   .about-inner {
@@ -841,7 +838,7 @@ import video1 from '../assets/output.mp4';
     font-size: 1.0rem;
     font-weight: 300;
     line-height: 1.85;
-    color: var(--text-light);
+    color: rgba(15, 23, 42, 0.78);
   }
 
   .about-list {
@@ -858,7 +855,7 @@ import video1 from '../assets/output.mp4';
     align-items: center;
     gap: 0.85rem;
     font-size: 0.92rem;
-    color: var(--text-light);
+    color: rgba(15, 23, 42, 0.78);
   }
 
   .list-dot {
@@ -883,8 +880,8 @@ import video1 from '../assets/output.mp4';
      CONTACT — dark ink, matches site palette
   ===================================================== */
   .contact-section {
-    background: var(--ink);
-    border-top: 1px solid var(--border);
+    background: #ffffff;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
   }
 
   .contact-inner {
@@ -901,7 +898,7 @@ import video1 from '../assets/output.mp4';
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    color: #ffffff;
+    color: var(--ink);
   }
 
   .contact-inner p {
@@ -909,7 +906,7 @@ import video1 from '../assets/output.mp4';
     font-size: 1rem;
     font-weight: 300;
     line-height: 1.8;
-    color: var(--text-light);
+    color: rgba(15, 23, 42, 0.78);
   }
 
   .contact-actions {
