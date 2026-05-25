@@ -5,795 +5,1009 @@ import video1 from '../assets/output.mp4';
 ---
 
 <Layout>
-  <video
-    class="page-bg-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    poster="/background.svg"
-  >
-    <source
-      src={video1}
-      type="video/mp4"
-    />
-  </video>
-
   <main class="page-shell">
+
     <!-- NAVIGATION -->
-    <nav class="top-nav" aria-label="Primary navigation">
-      <a class="logo-link" href="#home">
-        <img
-          class="logo"
-          src={logoSrc.src}
-          alt="Brand logo"
-        /> 
-        
-      </a>
+    <nav class="top-nav" id="top-nav" aria-label="Primary navigation">
+      <div class="nav-left">
+        <a class="logo-link" href="#home">
+          <img class="logo" src={logoSrc.src} alt="Fly Through Films logo" />
+        </a>
 
-
-      <div class="nav-links">
-        <a href="#portfolio">Portfolio</a>
-        <a href="#services">Υπηρεσίες</a>
-        <a href="#contact">Επικοινωνία</a>
+        <div class="nav-links">
+          <a href="#portfolio">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </span>
+            Πόρτφολιο
+          </a>
+          <a href="#services">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+            </span>
+            Υπηρεσίες
+          </a>
+          <a href="#about">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5.5 21c1.83-3.36 5.1-5 6.5-5s4.67 1.64 6.5 5"/></svg>
+            </span>
+            Σχετικά
+          </a>
+        </div>
       </div>
+
+      <a href="#contact" class="button nav-cta">Επικοινωνία</a>
     </nav>
 
     <!-- HERO -->
     <section class="hero" id="home">
+      <video class="hero-video" autoplay muted loop playsinline poster="/background.svg">
+        <source src={video1} type="video/mp4" />
+      </video>
       <div class="hero-overlay"></div>
-
       <div class="hero-copy">
-        <span class="tag">Drone Photography</span>
-
+        <span class="tag">Fly Through Films</span>
         <h1>
-          Δημιούργησε στιγμές μαζί μας
+          <span class="keyword" aria-live="polite">Εξατομικευμένες Υπηρεσίες</span>
         </h1>
-
-        <p>
-		Παραγωγή φωτογραφικού και βιντεογραφικού περιεχομένου υψηλής ποιότητας. Για την επιχείρηση σου, το σκάφος, 
-		το real estate, το event και τι στιγμές που ψάχνεις να μεταδόσεις!
-
+        <p class="hero-lead">
+          Μοναδικό cinematic περιεχόμενο για σκάφη, real estate και events — σχεδιασμένο για premium brands.
         </p>
-
         <div class="hero-actions">
-          <a href="#portfolio" class="button">
-            Προβολή Portfolio
-          </a>
-
-          <a
-            href="#contact"
-            class="button button-secondary"
-          >
-            Επικοινωνία
-          </a>
+          <a href="#portfolio" class="button">Προβολή Portfolio</a>
+          <a href="#contact" class="button button-secondary">Επικοινωνία</a>
         </div>
       </div>
     </section>
 
-    <!-- VIDEO BACKGROUND WRAPPER -->
-    <div class="content-bg-wrapper">
-      <!-- PORTFOLIO -->
-      <section id="portfolio" class="section panel">
-      <div class="section-heading">
-        <span>Portfolio</span>
-        <h2>Drone imagery for modern brands</h2>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <div class="card-visual card-visual-1"></div>
-
-          <h3>Coastal Resorts</h3>
-
-          <p>
-            Capture immersive aerial scenes that showcase
-            location, luxury, and lifestyle from above.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-visual card-visual-2"></div>
-
-          <h3>Real Estate</h3>
-
-          <p>
-            Crisp aerial photos and walkthrough videos
-            designed to elevate property listings and marketing.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-visual card-visual-3"></div>
-
-          <h3>Adventure & Events</h3>
-
-          <p>
-            Dynamic coverage for outdoor experiences,
-            festivals, launches, and brand activations.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="section section-alt">
-      <div class="section-heading">
-        <span>Services</span>
-        <h2>What we bring to your next project</h2>
-      </div>
-
-      <div class="feature-grid">
-        <div class="feature">
-          <h3>Aerial Videography</h3>
-
-          <p>
-            Steady cinematic footage for promos,
-            commercials, and digital campaigns.
-          </p>
-        </div>
-
-        <div class="feature">
-          <h3>Drone Photography</h3>
-
-          <p>
-            Sharp, high-resolution aerial stills ready
-            for print, web, and social use.
-          </p>
-        </div>
-
-        <div class="feature">
-          <h3>Inspection & Survey</h3>
-
-          <p>
-            Fast and safe aerial inspection imagery for
-            construction, land, and event planning.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section panel">
-      <div class="split-layout">
-        <div>
-          <span>About</span>
-
-          <h2>
-            Drone crews built for visual storytelling
-          </h2>
-
-          <p>
-            We combine FAA-safe flight practices with
-            creative direction to deliver polished aerial media.
-            From concept through final edit, our work is tailored
-            for brands that need next-level perspective.
-          </p>
-
-          <ul>
-            <li>Professional drone pilots</li>
-            <li>4K and 6K camera systems</li>
-            <li>Fast delivery and easy licensing</li>
-          </ul>
-        </div>
-
-        <div class="about-visual"></div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section
-      id="contact"
-      class="section section-alt contact-panel"
-    >
-      <div>
-        <span>Contact</span>
-
-        <h2>
-          Ready to launch your next aerial campaign?
-        </h2>
-
+    <!-- WHITE SECTION -->
+    <section class="white-hero-section">
+      <div class="white-hero-copy">
+        <span class="tag light">Δεν φωτογραφίζουμε απλώς...</span>
+        <h2>Αποτυπώνουμε τις εικόνες που οι πελάτες μας οραματίζονται.</h2>
         <p>
-          Reach out for a custom quote, location scouting,
-          or creative direction for your next drone shoot.
+          Από βίντεο με drones μέχρι branded περιεχόμενο, δημιουργούμε υλικό που αποθεώνει
+          premium προϊόντα και κάνει το όραμά σας αδύνατον να προσπεραστεί.
         </p>
-
-        <a
-          href="mailto:hello@droneportfolio.com"
-          class="button"
-        >
-          hello@droneportfolio.com
-        </a>
+      </div>
+      <div class="white-hero-media">
+        <video class="white-video" autoplay muted loop playsinline poster="/background.svg">
+          <source src={video1} type="video/mp4" />
+        </video>
       </div>
     </section>
-    </div>
+
+    <!-- DARK CONTENT WRAPPER -->
+    <div class="content-bg-wrapper">
+
+      <!-- PORTFOLIO -->
+      <section id="portfolio" class="section portfolio-section">
+        <div class="section-heading">
+          <span class="section-label">Πόρτφολιο</span>
+          <h2>Υλικό για σύγχρονες επιχειρήσεις</h2>
+        </div>
+
+        <div class="portfolio-scroller" aria-label="Portfolio services">
+          <div class="portfolio-track">
+            <!-- original items -->
+            <article class="card service-card">
+              <div class="card-visual card-visual-1"></div>
+              <h3>Social Media Promotions</h3>
+              <p>Δυναμικό και μοντέρνο περιεχόμενο για beach bars, hotels, events και δραστηριοτήτων εξωτερικού χώρου.</p>
+            </article>
+            <article class="card service-card">
+              <div class="card-visual card-visual-2"></div>
+              <h3>Real Estate</h3>
+              <p>Ο χώρος του real estate είναι πλέον κορεσμένος. Ξεχώρισε σε reels, TikTok και αγγελίες.</p>
+            </article>
+            <article class="card service-card">
+              <div class="card-visual card-visual-3"></div>
+              <h3>Adventure & Events</h3>
+              <p>Δυναμική κάλυψη για outdoor experiences, festivals, launches και brand activations.</p>
+            </article>
+            <article class="card service-card">
+              <div class="card-visual card-visual-4"></div>
+              <h3>Luxury Travel Films</h3>
+              <p>Cinematic storytelling για high-end ταξίδια, charters και premium hospitality brands.</p>
+            </article>
+            <article class="card service-card">
+              <div class="card-visual card-visual-1"></div>
+              <h3>Coastal Resorts</h3>
+              <p>Εντυπωσιακές εναέριες λήψεις που αναδεικνύουν τοποθεσία, πολυτέλεια και lifestyle.</p>
+            </article>
+            <article class="card service-card">
+              <div class="card-visual card-visual-2"></div>
+              <h3>Property Marketing</h3>
+              <p>Εναέριες φωτογραφίες και walkthrough videos σχεδιασμένα για premium property listings.</p>
+            </article>
+            <!-- duplicates for seamless loop -->
+            <article class="card service-card" aria-hidden="true">
+              <div class="card-visual card-visual-3"></div>
+              <h3>Adventure & Events</h3>
+              <p>Δυναμική κάλυψη για outdoor experiences, festivals, launches και brand activations.</p>
+            </article>
+            <article class="card service-card" aria-hidden="true">
+              <div class="card-visual card-visual-4"></div>
+              <h3>Luxury Travel Films</h3>
+              <p>Cinematic storytelling για high-end ταξίδια, charters και premium hospitality brands.</p>
+            </article>
+            <article class="card service-card" aria-hidden="true">
+              <div class="card-visual card-visual-1"></div>
+              <h3>Social Media Promotions</h3>
+              <p>Δυναμικό και μοντέρνο περιεχόμενο για beach bars, hotels, events και δραστηριοτήτων εξωτερικού χώρου.</p>
+            </article>
+            <article class="card service-card" aria-hidden="true">
+              <div class="card-visual card-visual-2"></div>
+              <h3>Real Estate</h3>
+              <p>Ο χώρος του real estate είναι πλέον κορεσμένος. Ξεχώρισε σε reels, TikTok και αγγελίες.</p>
+            </article>
+            <article class="card service-card" aria-hidden="true">
+              <div class="card-visual card-visual-3"></div>
+              <h3>Adventure & Events</h3>
+              <p>Δυναμική κάλυψη για outdoor experiences, festivals, launches και brand activations.</p>
+            </article>
+            <article class="card service-card" aria-hidden="true">
+              <div class="card-visual card-visual-4"></div>
+              <h3>Luxury Travel Films</h3>
+              <p>Cinematic storytelling για high-end ταξίδια, charters και premium hospitality brands.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="section section-service-grid">
+        <div class="section-heading">
+          <span class="section-label">Υπηρεσίες</span>
+          <h2>Τι φέρνουμε στο επόμενό σας project</h2>
+        </div>
+        <div class="service-grid">
+          <div class="service-box">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.9L15 14"/><rect x="1" y="6" width="15" height="12" rx="2"/></svg>
+            </div>
+            <h3>Aerial Videography</h3>
+            <p>Σταθερές cinematic λήψεις για promos, commercials και digital campaigns.</p>
+          </div>
+          <div class="service-box">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M3 9l2-4h14l2 4v9a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/></svg>
+            </div>
+            <h3>Drone Photography</h3>
+            <p>Εναέριες φωτογραφίες υψηλής ανάλυσης για print, web και social media.</p>
+          </div>
+          <div class="service-box">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 4v16M17 4v16M3 8h4m10 0h4M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/></svg>
+            </div>
+            <h3>Brand Films</h3>
+            <p>Cinematic films με αφηγηματικό χαρακτήρα για premium brand identity.</p>
+          </div>
+          <div class="service-box">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h3>Event Coverage</h3>
+            <p>Ολοκληρωμένη κάλυψη με video και φωτογραφία για κάθε live experience.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section about-section">
+        <div class="about-inner">
+          <div class="about-text">
+            <span class="section-label">Σχετικά</span>
+            <h2>Drone crews φτιαγμένα για visual storytelling</h2>
+            <p>
+              Συνδυάζουμε επαγγελματικές πτητικές πρακτικές με δημιουργική κατεύθυνση για να παραδώσουμε
+              υψηλής ποιότητας εναέριο περιεχόμενο. Από το concept μέχρι το τελικό edit,
+              η δουλειά μας είναι προσαρμοσμένη για brands που θέλουν να ξεχωρίζουν.
+            </p>
+            <ul class="about-list">
+              <li>
+                <span class="list-dot"></span>
+                Επαγγελματίες drone pilots με πιστοποίηση
+              </li>
+              <li>
+                <span class="list-dot"></span>
+                Κάμερες 4K και 6K για ανάλυση άλλου επιπέδου
+              </li>
+              <li>
+                <span class="list-dot"></span>
+                Γρήγορη παράδοση και εύκολη αδειοδότηση
+              </li>
+            </ul>
+          </div>
+          <div class="about-visual"></div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section contact-section">
+        <div class="contact-inner">
+          <span class="section-label light">Επικοινωνία</span>
+          <h2>Σου άρεσε η δουλειά και η φιλοσοφία μας;</h2>
+          <p>
+            Μην διστάσεις να επικοινωνήσεις με email ή να μας βρεις στις παρακάτω πλατφόρμες.
+          </p>
+          <div class="contact-actions">
+            <a href="mailto:flythroughfilms@gmail.com" class="button contact-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              flythroughfilms@gmail.com
+            </a>
+            <div class="contact-social">
+              <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" class="social-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><path d="M16 11.37a4 4 0 1 1-7.99.63A4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>
+                <span>Instagram</span>
+              </a>
+              <a href="https://www.youtube.com/yourchannel" target="_blank" rel="noopener noreferrer" class="social-link">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29.44 29.44 0 0 0 1 12a29.44 29.44 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29.44 29.44 0 0 0 23 12a29.44 29.44 0 0 0-.46-5.58z"/><path d="M10 15l5-3-5-3v6z"/></svg>
+                <span>YouTube</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- end .content-bg-wrapper -->
 
     <!-- FOOTER -->
     <footer class="footer">
-      <p>
-        Drone Portfolio • Cinematic Aerial Photography &
-        Video • © 2026
-      </p>
+      <p>Fly Through Films © 2026 — Cinematic Aerial Media</p>
     </footer>
   </main>
+
+  <script>
+    /* ── Keyword cycling ── */
+    const keywords = ['Εξατομικευμένες Υπηρεσίες', 'Τέχνη και Επιχείρηση', 'Αύξηση Πωλήσεων', 'Δημιουργία Αναμνήσεων', 'Κάλυψη Εκδηλώσεων', 'Προώθηση Προϊόντων'];
+    const keywordEl = document.querySelector<HTMLElement>('.hero-copy .keyword');
+    let keywordIndex = 0;
+
+    const updateKeyword = () => {
+      if (!keywordEl) return;
+      keywordEl.classList.add('fade-out');
+      window.setTimeout(() => {
+        keywordIndex = (keywordIndex + 1) % keywords.length;
+        keywordEl.textContent = keywords[keywordIndex];
+        keywordEl.classList.remove('fade-out');
+      }, 400);
+    };
+    if (keywordEl) window.setInterval(updateKeyword, 3000);
+
+    /* ── Nav visibility: show only while hero is in view ── */
+    const heroEl = document.querySelector<HTMLElement>('.hero');
+    const navEl  = document.querySelector<HTMLElement>('#top-nav');
+
+    if (heroEl && navEl && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navEl.classList.remove('nav-hidden');
+          } else {
+            navEl.classList.add('nav-hidden');
+          }
+        });
+      }, { threshold: 0.05 });
+      io.observe(heroEl);
+    }
+
+    /* ── Portfolio auto-scroll (CSS animation, JS only for drag/wheel override) ── */
+    (() => {
+      const scroller = document.querySelector<HTMLElement>('.portfolio-scroller');
+      const track    = scroller?.querySelector<HTMLElement>('.portfolio-track');
+      if (!scroller || !track) return;
+
+      /* Allow horizontal wheel scroll */
+      scroller.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaY) > 0) {
+          e.preventDefault();
+          // Nudge the animation offset instead — we use CSS animation, no scrollLeft
+          // Simply do nothing extra; CSS handles the loop.
+        }
+      }, { passive: false });
+    })();
+  </script>
 </Layout>
 
 <style>
+  /* =====================================================
+     DESIGN TOKENS
+  ===================================================== */
+  :root {
+    --ink:        #06091A;
+    --ink-soft:   #0D1129;
+    --surface:    #ffffff;
+    --gold:       #E8A020;
+    --gold-light: #F5B942;
+    --gold-dim:   rgba(232,160,32,0.12);
+    --text-light: rgba(248,250,252,0.80);
+    --text-muted: rgba(248,250,252,0.48);
+    --border:     rgba(255,255,255,0.07);
+
+    /* Typography */
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-label:   'DM Mono', 'Courier New', monospace;
+  }
+
+  /* Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
   :global(html, body) {
     margin: 0;
     min-height: 100%;
-
-    font-family:
-      Inter,
-      ui-sans-serif,
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      sans-serif;
-
+    font-family: var(--font-body);
     color: #f8fafc;
-    background: transparent;
+    background: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  :global(body) {
-    overflow-x: hidden;
-  }
+  :global(body) { overflow-x: hidden; }
 
   .page-shell {
     position: relative;
     min-height: 100vh;
     z-index: 1;
-  }
-
-  /* =========================
-     PAGE BG VIDEO
-  ========================== */
-
-  .page-bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-
     width: 100%;
-    height: 100vh;
-
-    object-fit: cover;
-
-    opacity: 0.6;
-
-    filter:
-      saturate(0.95)
-      contrast(1.05);
-
-    pointer-events: none;
-
-    z-index: 0;
+    max-width: 100%;
   }
 
-  /* =========================
-     DJI-STYLE NAVBAR
-  ========================== */
-
+  /* =====================================================
+     NAVIGATION
+  ===================================================== */
   .top-nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-
+    top: 0; left: 0; right: 0;
     z-index: 100;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    height: 82px;
+    height: 80px;
     padding: 0 2.5rem;
-
-    background: rgba(5, 8, 22, 0.72);
-
-    backdrop-filter: blur(18px);
-
-    border-bottom:
-      1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(180deg, rgba(6,9,26,0.72) 0%, transparent 100%);
+    backdrop-filter: blur(0px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
 
-  .logo-link {
+  .top-nav.nav-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100%);
+  }
+
+  .nav-left {
     display: flex;
     align-items: center;
-    flex-shrink: 0;
+    gap: 2.5rem;
   }
 
-  .logo {
-    height: 52px;
-    width: auto;
-
-    object-fit: contain;
-    display: block;
-  }
+  .logo-link { display: flex; align-items: center; flex-shrink: 0; }
+  .logo { height: 48px; width: auto; object-fit: contain; display: block; }
 
   .nav-links {
     display: flex;
     align-items: center;
-
-    gap: 2.2rem;
+    gap: 2rem;
   }
 
   .nav-links a {
     position: relative;
-
-    color: rgba(255, 255, 255, 0.78);
-
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: rgba(248,250,252,0.88);
     text-decoration: none;
-
-    font-size: 0.92rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
     font-weight: 500;
-    letter-spacing: 0.01em;
-
-    transition:
-      color 0.2s ease,
-      opacity 0.2s ease;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
   }
 
-  .nav-links a:hover {
-    color: #ffffff;
-  }
+  .nav-links a:hover { color: #ffffff; }
 
   .nav-links a::after {
     content: '';
-
     position: absolute;
-    left: 0;
-    bottom: -0.45rem;
-
-    width: 100%;
-    height: 1px;
-
-    background: white;
-
+    left: 0; bottom: -0.4rem;
+    width: 100%; height: 1px;
+    background: var(--gold);
     transform: scaleX(0);
-    transform-origin: center;
-
+    transform-origin: left;
     transition: transform 0.25s ease;
   }
 
-  .nav-links a:hover::after {
-    transform: scaleX(1);
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-icon {
+    display: inline-flex;
+    width: 0.9rem;
+    height: 0.9rem;
+    opacity: 0.7;
   }
 
-  /* =========================
-     HERO
-  ========================== */
+  .nav-cta {
+    padding: 0.65rem 1.4rem;
+    border-radius: 0.5rem;
+    background: var(--gold);
+    color: var(--ink) !important;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+    min-width: unset;
+    border-radius: 0.5rem;
+  }
 
+  .nav-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  /* =====================================================
+     HERO
+  ===================================================== */
   .hero {
     position: relative;
-
     min-height: 100vh;
-
-    display: grid;
-    place-items: center;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-
-    padding:
-      calc(82px + 2rem)
-      1.5rem
-      2rem;
-
+    padding: calc(80px + 2rem) 1.5rem 5rem;
     overflow: hidden;
+  }
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.90;
+    filter: saturate(1.1) contrast(1.05) brightness(1.0);
+    pointer-events: none;
+    z-index: 0;
   }
 
   .hero-overlay {
     position: absolute;
     inset: 0;
-
-    background:
-      linear-gradient(
-        180deg,
-        rgba(5, 8, 22, 0.32),
-        rgba(5, 8, 22, 0.84)
-      );
+    background: linear-gradient(
+      180deg,
+      rgba(6,9,26,0.30) 0%,
+      rgba(6,9,26,0.55) 60%,
+      rgba(6,9,26,0.92) 100%
+    );
+    z-index: 1;
   }
 
   .hero-copy {
     position: relative;
-    z-index: 1;
-
-    max-width: 840px;
+    z-index: 2;
+    max-width: 880px;
+    margin: 0 auto;
   }
 
   .tag {
     display: inline-flex;
-
-    margin-bottom: 1rem;
-    padding: 0.65rem 1rem;
-
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1.1rem;
     border-radius: 999px;
-
-    background:
-      rgba(255, 255, 255, 0.08);
-
-    color: #dbeafe;
-
-    font-size: 0.82rem;
-    letter-spacing: 0.18em;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(248,250,252,0.85);
+    font-family: var(--font-label);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
+  }
+
+  .tag.light {
+    background: rgba(6,9,26,0.06);
+    border-color: rgba(6,9,26,0.12);
+    color: rgba(6,9,26,0.65);
   }
 
   h1 {
     margin: 0;
-
-    font-size: clamp(3rem, 6vw, 5rem);
-
-    line-height: 0.98;
-    letter-spacing: -0.05em;
-
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 600;
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    color: #ffffff;
   }
 
-  p {
-    max-width: 720px;
+  .hero-copy .keyword {
+    display: inline-block;
+    color: var(--gold-light);
+    font-style: italic;
+    transition: opacity 0.4s ease;
+  }
 
-    margin: 1.5rem auto 0;
+  .hero-copy .keyword.fade-out { opacity: 0; }
 
+  .hero-lead {
+    max-width: 600px;
+    margin: 2rem auto 0;
     font-size: 1.05rem;
-    line-height: 1.75;
-
-    color:
-      rgba(248, 250, 252, 0.84);
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--text-light);
   }
 
   .hero-actions {
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
-
     gap: 1rem;
-
-    margin-top: 2.5rem;
+    margin-top: 2.75rem;
   }
 
   .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    min-width: 170px;
-
-    padding: 0.95rem 1.5rem;
-
-    border-radius: 999px;
-
-    background: white;
-    color: #050816;
-
+    gap: 0.5rem;
+    min-width: 180px;
+    padding: 0.95rem 1.75rem;
+    border-radius: 0.5rem;
+    background: rgba(255,255,255,0.95);
+    color: var(--ink);
     text-decoration: none;
+    font-family: var(--font-body);
     font-weight: 600;
-
-    transition:
-      transform 0.2s ease,
-      background-color 0.2s ease;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   }
 
   .button:hover {
     transform: translateY(-2px);
-    background: #e5e7eb;
+    background: #ffffff;
+    box-shadow: 0 16px 40px rgba(6,9,26,0.18);
   }
 
   .button-secondary {
-    background:
-      rgba(255, 255, 255, 0.1);
-
-    color: white;
-
-    border:
-      1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255,255,255,0.08);
+    color: #f8fafc;
+    border: 1px solid rgba(255,255,255,0.18);
   }
 
   .button-secondary:hover {
-    background:
-      rgba(255, 255, 255, 0.18);
+    background: rgba(255,255,255,0.16);
   }
 
-  /* =========================
-     SECTIONS
-  ========================== */
+  /* =====================================================
+     WHITE HERO SECTION
+  ===================================================== */
+  .white-hero-section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 4rem;
+    padding: 6rem 6rem;
+    background: #ffffff;
+    color: var(--ink);
+  }
 
+  .white-hero-copy .tag.light { margin-bottom: 1.2rem; }
+
+  .white-hero-copy h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+
+  .white-hero-copy p {
+    margin: 1.75rem 0 0;
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: rgba(6,9,26,0.70);
+  }
+
+  .white-hero-media {
+    position: relative;
+    min-height: 440px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(6,9,26,0.10);
+  }
+
+  .white-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* =====================================================
+     SHARED SECTION STYLES
+  ===================================================== */
   .section {
-    max-width: 1200px;
-
-    margin: 0 auto;
-    padding: 6rem 1.5rem;
-
+    padding: 7rem 0;
     position: relative;
     z-index: 1;
-
-    background: #050816;
-  }
-
-  .section-alt {
-    background: #070b1d;
   }
 
   .section-heading {
-    max-width: 680px;
-    margin-bottom: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 3rem;
   }
 
-  .section-heading span {
+  .section-label {
     display: inline-block;
-
-    margin-bottom: 0.9rem;
-
-    color: #94a3b8;
-
+    margin-bottom: 1rem;
+    font-family: var(--font-label);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
-
-    font-size: 0.78rem;
+    color: var(--gold);
   }
 
-  .section-heading h2 {
+  .section-label.light { color: var(--gold-light); }
+
+  .section-heading h2,
+  .about-text h2 {
     margin: 0;
-
-    font-size:
-      clamp(2rem, 2.4vw, 3rem);
-
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 3vw, 3.2rem);
+    font-weight: 600;
     line-height: 1.1;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
+    color: #ffffff;
   }
 
-  /* =========================
-     CARDS
-  ========================== */
+  /* =====================================================
+     PORTFOLIO SCROLLER — pure CSS animation, no JS scrollLeft
+  ===================================================== */
+  .portfolio-section {
+    background: var(--ink);
+    padding: 7rem 0;
+    overflow: hidden;
+  }
 
-  .card-grid,
-  .feature-grid {
-    display: grid;
+  .portfolio-scroller {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .portfolio-track {
+    display: flex;
     gap: 1.5rem;
+    padding: 0 3rem 0.5rem;
+    width: max-content;
+    /* animate: move left by exactly half (the 6 original cards) */
+    animation: portfolioScroll 28s linear infinite;
   }
 
-  .card-grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+  .portfolio-scroller:hover .portfolio-track {
+    animation-play-state: paused;
   }
 
+  @keyframes portfolioScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .portfolio-track .service-card {
+    flex: 0 0 360px;
+    width: 360px;
+  }
+
+  /* =====================================================
+     CARDS
+  ===================================================== */
   .card {
-    background:
-      rgba(15, 23, 42, 0.82);
-
-    border:
-      1px solid rgba(255, 255, 255, 0.06);
-
-    border-radius: 1.5rem;
-
-    padding: 1.4rem;
-
-    transition:
-      transform 0.25s ease,
-      border-color 0.25s ease;
+    background: rgba(13,17,41,0.90);
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
 
   .card:hover {
-    transform: translateY(-4px);
-
-    border-color:
-      rgba(255, 255, 255, 0.14);
+    transform: translateY(-5px);
+    border-color: rgba(232,160,32,0.30);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
   }
 
   .card h3 {
-    margin: 1.2rem 0 0.7rem;
-
-    font-size: 1.2rem;
+    margin: 1.2rem 0 0.65rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #ffffff;
   }
 
   .card p {
     margin: 0;
-
-    color:
-      rgba(248, 250, 252, 0.74);
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--text-light);
   }
 
   .card-visual {
     width: 100%;
-    height: 240px;
-
-    border-radius: 1.2rem;
-
+    height: 230px;
+    border-radius: 1rem;
     background-size: cover;
     background-position: center;
   }
 
-  .card-visual-1 {
-    background-image:
-      url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80');
+  .card-visual-1 { background-image: url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80'); }
+  .card-visual-2 { background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80'); }
+  .card-visual-3 { background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80'); }
+  .card-visual-4 { background-image: url('https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=900&q=80'); }
+
+  /* =====================================================
+     SERVICES GRID — matches gold palette
+  ===================================================== */
+  .section-service-grid {
+    background: var(--gold);
   }
 
-  .card-visual-2 {
-    background-image:
-      url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80');
+  .section-service-grid .section-heading h2 {
+    color: var(--ink);
   }
 
-  .card-visual-3 {
-    background-image:
-      url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80');
+  .section-service-grid .section-label {
+    color: rgba(6,9,26,0.55);
   }
 
-  /* =========================
-     FEATURES
-  ========================== */
-
-  .feature-grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+  .service-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem 1rem;
   }
 
-  .feature {
-    background:
-      rgba(15, 23, 42, 0.9);
-
-    border-radius: 1.4rem;
-
-    padding: 2rem;
-
-    border:
-      1px solid rgba(255, 255, 255, 0.06);
+  .service-box {
+    padding: 2.25rem 2rem;
+    background: rgba(6,9,26,0.08);
+    border-radius: 1.25rem;
+    border: 1px solid rgba(6,9,26,0.10);
+    transition: background 0.2s ease, transform 0.2s ease;
   }
 
-  .feature h3 {
-    margin-top: 0;
-
-    font-size: 1.15rem;
+  .service-box:hover {
+    background: rgba(6,9,26,0.14);
+    transform: translateY(-3px);
   }
 
-  /* =========================
+  .service-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 1.2rem;
+    color: var(--ink);
+    opacity: 0.75;
+  }
+
+  .service-icon svg { width: 100%; height: 100%; }
+
+  .service-box h3 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .service-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: rgba(6,9,26,0.80);
+  }
+
+  /* =====================================================
      ABOUT
-  ========================== */
+  ===================================================== */
+  .about-section {
+    background: var(--ink-soft);
+  }
 
-  .split-layout {
+  .about-inner {
     display: grid;
-
-    grid-template-columns:
-      1.05fr 0.95fr;
-
-    gap: 2rem;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4rem;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
   }
 
-  .split-layout ul {
+  .about-text .section-label { margin-bottom: 1rem; }
+
+  .about-text p {
+    margin: 1.75rem 0 0;
+    font-size: 1.0rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--text-light);
+  }
+
+  .about-list {
     list-style: none;
-
     padding: 0;
-    margin: 2rem 0 0;
+    margin: 2.25rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-    display: grid;
+  .about-list li {
+    display: flex;
+    align-items: center;
     gap: 0.85rem;
+    font-size: 0.92rem;
+    color: var(--text-light);
   }
 
-  .split-layout li {
-    position: relative;
-
-    padding-left: 1.2rem;
-
-    color:
-      rgba(248, 250, 252, 0.82);
-  }
-
-  .split-layout li::before {
-    content: '•';
-
-    position: absolute;
-    left: 0;
-
-    color: white;
+  .list-dot {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
   }
 
   .about-visual {
-    min-height: 420px;
-
-    border-radius: 2rem;
-
-    background-image:
-      url('https://images.unsplash.com/photo-1487505984009-0156a0d0b9ef?auto=format&fit=crop&w=1100&q=80');
-
+    min-height: 460px;
+    border-radius: 1.5rem;
+    background-image: url('https://images.unsplash.com/photo-1487505984009-0156a0d0b9ef?auto=format&fit=crop&w=1100&q=80');
     background-size: cover;
     background-position: center;
-
-    box-shadow:
-      inset 0 0 0 1px
-      rgba(255, 255, 255, 0.04);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    border: 1px solid var(--border);
   }
 
-  /* =========================
-     CONTACT
-  ========================== */
+  /* =====================================================
+     CONTACT — dark ink, matches site palette
+  ===================================================== */
+  .contact-section {
+    background: var(--ink);
+    border-top: 1px solid var(--border);
+  }
 
-  .contact-panel {
+  .contact-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  .contact-inner h2 {
+    margin: 0.75rem 0 1.25rem;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+  }
+
+  .contact-inner p {
+    margin: 0 0 2.5rem;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-light);
+  }
+
+  .contact-actions {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    min-height: 320px;
+    gap: 1.5rem;
   }
 
-  .contact-panel h2 {
-    margin: 1rem 0 0.8rem;
+  /* Contact button matches the gold services section */
+  .contact-btn {
+    background: var(--gold) !important;
+    color: var(--ink) !important;
+    border: none;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 1rem 2rem;
+    min-width: 240px;
+    font-size: 0.9rem;
   }
 
-  /* =========================
+  .contact-btn:hover {
+    background: var(--gold-light) !important;
+    box-shadow: 0 16px 40px rgba(232,160,32,0.25) !important;
+  }
+
+  .contact-social {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.55rem 0.9rem;
+    border-radius: 0.5rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    font-weight: 500;
+    font-size: 0.88rem;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .social-link:hover {
+    background: rgba(255,255,255,0.10);
+    color: #ffffff;
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  /* =====================================================
      FOOTER
-  ========================== */
-
+  ===================================================== */
   .footer {
-    padding: 2rem 1.5rem;
-
+    padding: 2.5rem 1.5rem;
     text-align: center;
-
-    color:
-      rgba(248, 250, 252, 0.52);
+    font-family: var(--font-label);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
   }
 
-  /* =========================
+  /* =====================================================
      RESPONSIVE
-  ========================== */
-
-  @media (max-width: 900px) {
-    .card-grid,
-    .feature-grid,
-    .split-layout {
+  ===================================================== */
+  @media (max-width: 960px) {
+    .white-hero-section {
       grid-template-columns: 1fr;
+      padding: 4rem 2rem;
+      gap: 2.5rem;
     }
 
-    .hero {
-      padding:
-        calc(82px + 2rem)
-        1rem
-        4rem;
+    .about-inner {
+      grid-template-columns: 1fr;
+      padding: 0 2rem;
     }
+
+    .about-visual { min-height: 300px; }
+    .service-grid { grid-template-columns: 1fr; padding: 0 2rem 1rem; }
+    .section-heading { padding: 0 2rem; }
   }
 
   @media (max-width: 768px) {
-    .top-nav {
-      height: 72px;
-      padding: 0 1.2rem;
-    }
-
-    .logo {
-      height: 44px;
-    }
-
-    .nav-links {
-      gap: 1rem;
-    }
-
-    .nav-links a {
-      font-size: 0.82rem;
-    }
+    .top-nav { height: 68px; padding: 0 1.5rem; }
+    .logo { height: 40px; }
+    .nav-links { gap: 1.25rem; }
+    .nav-links a { font-size: 0.75rem; }
   }
 
   @media (max-width: 640px) {
-    .top-nav {
-      justify-content: center;
-    }
-
-    .nav-links {
-      display: none;
-    }
-
-    .logo-link {
-      position: absolute;
-      left: 1rem;
-    }
-
-    .hero h1 {
-      font-size: 2.8rem;
-    }
-
-    .card-visual,
-    .about-visual {
-      height: 260px;
-    }
+    .nav-links { display: none; }
+    .nav-left { gap: 0; }
+    h1 { font-size: 2.8rem; }
+    .portfolio-track .service-card { flex: 0 0 300px; width: 300px; }
+    .card-visual { height: 190px; }
   }
 </style>
